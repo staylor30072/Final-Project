@@ -1,8 +1,17 @@
 class Plate {
   PVector loc;
-  int xsize,ysize;
+  int xsize, ysize;
+
+  //Constructor 1
   Plate(float p, float g) {
     loc= new PVector(p, g);
+    xsize = 100;
+    ysize = 10;
+  }
+
+  //Constructor 2
+  Plate(PVector old) {
+    loc= new PVector(random(width), random(old.y-100, old.y-10));
     xsize = 100;
     ysize = 10;
   }
@@ -19,20 +28,27 @@ class Plate {
       return false;
     }
   }
-   boolean isInContactWithChip(PVector direction) {
-      if (direction.y>height-height/8&&direction.y<loc.y-6&&loc.x-50<direction.x+27&&loc.x+50>direction.x){
-       return true;
-      }
+  boolean isInContactWithChip(PVector direction) {
+    if (direction.y>height-height/8&&direction.y<loc.y-6&&loc.x-50<direction.x+27&&loc.x+50>direction.x) {
+      return true;
+    }
+    return false;
+  }
+  void update() {
+  }
+
+  boolean allAboutThatBase() {
+    if (loc.y<=height-height/8) {
+      return true;
+    } else {
       return false;
     }
-  void update() {
-     
   }
-  
-  boolean allAboutThatBase(){
-    if(loc.y<=height-height/8){
+
+  boolean tooClose( PVector a, PVector b) {
+    if ( dist(a.x, a.y, b.x, b.y)< 10) {
       return true;
-    }else {
+    } else {
       return false;
     }
   }

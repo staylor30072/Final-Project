@@ -34,6 +34,7 @@ void draw() {
       p.remove(i);
       p.add(new Plate (random(width), random(0)));
     }
+   // if (
   }
 }
 void keyPressed() {
