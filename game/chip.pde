@@ -1,5 +1,5 @@
 class Chip {
-  float gravity =0.05;
+  float gravity =0.02;
   PVector loc, vel;
   //PImage chip, chipjump;
   float chipx, chipy;
@@ -9,16 +9,16 @@ class Chip {
   //    this.chipjump = chipjump;
   Chip() {
     loc = new PVector();
-    loc.set(width/2-15, height-height/2);
+    loc.set(width/2-15, height-height);
     vel = new PVector();
     vel.set(0, .5);
   }
   void key() {
     if (key == CODED) {
       if (keyCode == LEFT) {
-        loc.x-=8;
+        loc.x-=10;
       } else if (keyCode == RIGHT) {
-        loc.x+=8;
+        loc.x+=10;
       }
     }
   }
