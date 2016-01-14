@@ -1,14 +1,29 @@
+boolean play = false;
+//PImage chip, chipjump;
+Chip chip;
 ArrayList<Plate> p = new ArrayList<Plate>();
-void setup() { 
-  size(800, 800);
-  p.add(new Plate(random(width), random(height)));
-  background(0);
+
+
+void setup() {
+  size(500, 800);
+  p.add(new Plate(width/2, height-height/8+50));
+  chip = new Chip();
+  //  chip = loadImage();
+  //  chipjump = loadImage();
 }
 void draw() {
-  background(0);
-  if ( keyPressed && keyCode ==UP) {
-    p.add(new Plate(random(width), random(0)));
+  background(255);
+  chip.displaychip();
+  chip.update();
+  chip.fall();
+  for (int i = p.size()-1; i>=0; i--) {
+      Plate o=p.get(i);
+      if(o.isInContactWithChip(chip.loc)){
+        o.update();
+        chip.jump();
+    }
   }
+
   for (int i = p.size()-1; i>=0; i--) {
     Plate o=p.get(i);
     o.create();
@@ -20,4 +35,7 @@ void draw() {
       p.add(new Plate (random(width), random(0)));
     }
   }
+}
+void keyPressed() {
+  chip.key();
 }

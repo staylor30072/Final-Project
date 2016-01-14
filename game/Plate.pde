@@ -1,13 +1,15 @@
 class Plate {
   PVector loc;
-
+  int xsize,ysize;
   Plate(float p, float g) {
     loc= new PVector(p, g);
+    xsize = 100;
+    ysize = 10;
   }
 
   void create() {
     fill(255);
-    ellipse(loc.x, loc.y, 100, 10);
+    ellipse(loc.x, loc.y, xsize, ysize);
   }
 
   boolean offScreen() {
@@ -17,9 +19,14 @@ class Plate {
       return false;
     }
   }
-
+   boolean isInContactWithChip(PVector direction) {
+      if (direction.y>height-height/8&&direction.y<loc.y-6&&loc.x-50<direction.x+27&&loc.x+50>direction.x){
+       return true;
+      }
+      return false;
+    }
   void update() {
-     loc.y+=4;
+     
   }
   
   boolean allAboutThatBase(){
