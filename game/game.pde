@@ -10,7 +10,7 @@ void setup() {
   mediumfont = createFont("Bookman Old Style", 23, true);
   smallfont = createFont("Bookman Old Style", 17, true);
   boxfont = createFont("Bookman Old Style", 30, true);
-  boxfont2 = createFont("Bookman Old Style", 17, true);
+  boxfont2 = createFont("Bookman Old Style", 16, true);
   niall = 1;
 }
 
@@ -46,6 +46,7 @@ void draw() {
   }
   if (niall==2){
     background(255);
+    fill(0);
     textFont(okfont);
     text("Power-ups Include:", 250, 100);
     text("Obstacles Include:", 250, 400);
@@ -66,5 +67,13 @@ void draw() {
     text("And Chip will fall to the sink!", 325, 625);
     text("They are not a safe place to land,", 175, 700);
     text("Chip will fall right through them!", 175, 725);
+    fill(0);
+    rect(5,5,125,50);
+    textFont(mediumfont);
+    fill(255);
+    text("Back", 65, 40);
+    if(mousePressed && mouseX>5 && mouseX<55 && mouseY<130 && mouseY>5) {
+      niall = 1;
+    }
   }
 }
