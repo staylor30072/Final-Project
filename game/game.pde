@@ -1,42 +1,55 @@
 boolean play = false;
 //PImage chip, chipjump;
 Chip chip;
-ArrayList<Plate> p = new ArrayList<Plate>();
+ArrayList<Plate> platform = new ArrayList<Plate>();
 
 
 void setup() {
   size(500, 800);
-  p.add(new Plate(width/2, height-height/8+50));
+  
+  //Original Plate
+  for ( int i=0; i<1; i++) {
+    platform.add(new Plate());
+  }
+  
+  //Chip stuff
   chip = new Chip();
   //  chip = loadImage();
   //  chipjump = loadImage();
 }
 void draw() {
   background(255);
-  chip.displaychip();
-  chip.update();
-  chip.fall();
-  for (int i = p.size()-1; i>=0; i--) {
-      Plate o=p.get(i);
-      if(o.isInContactWithChip(chip.loc)){
-        o.update();
-        chip.jump();
+  chip.displaychip();    ///shows Chip
+  chip.update();    //Updates Chip
+  chip.fall();    //Makes chip fall
+  for (int i = platform.size()-1; i>=0; i--) {
+    Plate o= platform.get(i);
+    if (o.isInContactWithChip(chip.loc)) {
+      o.update();
+      chip.jump();
     }
   }
 
-  for (int i = p.size()-1; i>=0; i--) {
-    Plate o=p.get(i);
-    o.create();
-    if (o.allAboutThatBase()) {
-      o.update();
-    } 
-    if (o.offScreen()) {
-      p.remove(i);
-      p.add(new Plate (random(width), random(0)));
+    for (int i = platform.size()-1; i>=0; i--) {
+      Plate o=platform.get(i);
+      if (platform.size()<=6){
+      platform.add(new Plate(o));
+      }
+      o.create();
+      
+      /*if (o.allAboutThatBase()) {
+        o.update();
+      } */
+      if (o.offScreen()) {
+        platform.remove(i);
+        platform.add(new Plate(o));
+      }
+      if (keyPressed && keyCode==UP) {
+        platform.add(new Plate(o));
+      }
     }
-   // if (
   }
-}
+
 void keyPressed() {
   chip.key();
 }
