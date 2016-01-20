@@ -1,17 +1,18 @@
 class Chip {
   float gravity =.2;
   PVector loc, vel;
-  //PImage chip, chipjump;
+  PImage chip, chipjump;
   float chipx, chipy;
-  //  Chip(PImage chip, PImage chipjump) {
-
-  //    this.chip = chip;
-  //    this.chipjump = chipjump;
+  float ysize, xsize;
 
   //Constructor
   Chip(Plate bottom) {
+    chip = loadImage("chip.jpg");
+    chipjump = loadImage("chipjump.gif");
+    xsize=60;
+    ysize=80;
     loc = new PVector();
-    loc.set(bottom.loc.x, bottom.loc.y - 20);
+    loc.set(bottom.loc.x, bottom.loc.y - ysize/2);
     vel = new PVector();
     vel.set(0, 12);
   }
@@ -44,8 +45,7 @@ class Chip {
 
   //Shows the image of chip
   void displaychip() {
-    //    image(chip,loc.x,loc.y);
-    rect(loc.x, loc.y, 30, 40);
+    image(chip,loc.x,loc.y,xsize,ysize);
   }
   //  void displaychipjump(float x,float y) {
   //   image(chipjump, x,y);
@@ -53,14 +53,14 @@ class Chip {
 
   //Is Chip REALLY falling?
   boolean isFalling() {
-    //  if (){
-    //   return true;
-    //  }
+    if (vel.y>0){
+    return true;
+    }
     return false;
   }
 
   //Make sure Chip's intitial velocity
   void jump() {
-    vel.y = -abs(vel.y);
+    vel.y = -12;
   }
 }
