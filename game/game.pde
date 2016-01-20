@@ -1,5 +1,4 @@
 boolean play = false;
-//PImage chip, chipjump;
 Chip chip;
 ArrayList<Plate> platform = new ArrayList<Plate>();
 
