@@ -33,7 +33,7 @@ class Plate {
 
   //Checks to see if Chip is touching a plate
   boolean isInContactWithChip(PVector direction) {
-    if (direction.y>height-height/8&&direction.y<loc.y-6&&loc.x-50<direction.x+27&&loc.x+50>direction.x) {
+    if (direction.y>loc.y-ysize/2 && direction.y<loc.y+ysize/2 && loc.x-xsize/2<direction.x+27 && loc.x+xsize/2>direction.x) {
       return true;
     }
     return false;

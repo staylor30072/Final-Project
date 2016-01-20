@@ -13,7 +13,7 @@ void setup() {
   }
 
   //Chip stuff
-  chip = new Chip();
+  chip = new Chip(platform.get(0));
   //  chip = loadImage();
   //  chipjump = loadImage();
 }
@@ -27,7 +27,8 @@ void draw() {
     Plate o= platform.get(i);
 
     if (o.isInContactWithChip(chip.loc)) {
-      o.update();
+      println("caught chip in frame " + frameCount);
+      //o.update();
       chip.jump();
     }
   }
