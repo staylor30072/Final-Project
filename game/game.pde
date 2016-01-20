@@ -70,7 +70,7 @@ void draw() {
     image(clock,400,110, width*scaleFactor3, height*scaleFactor3);
     image(candles,25,230, width*scaleFactor3, height*scaleFactor3);
     image(mom,325,415, width*scaleFactor4, height*scaleFactor5);
-    //image(duster, 50, 400, width*scaleFactor3, height*scaleFactor3);
+    //image(duster, 50, 400, width*scaleFactor3, height*scaleFactor3); picture is not loading?
     fill(0);
     textFont(okfont);
     text("Power-ups Include:", 250, 100);
