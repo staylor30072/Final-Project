@@ -32,7 +32,7 @@ class Chip {
       vel.y += gravity;
     }
     
-    //Annie what does this do?
+    //wraps Chip around the screen
     void update() {
 
       if (loc.x+chipx > width) {

@@ -34,7 +34,7 @@ void draw() {
 
   for (int i = platform.size()-1; i>=0; i--) {
     Plate o=platform.get(i);
-    if (platform.size()<=6) {
+    if (platform.size()<=6) {    //Limits the amount 
       platform.add(new Plate(o));
     }
     o.create();
