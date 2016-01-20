@@ -1,8 +1,8 @@
 PFont bigfont, mediumfont, smallfont, boxfont, boxfont2, okfont;
-PImage chip, clock, duster, candles, mom;
+PImage chip, clock, duster, candles;
 float w1,w2,h1,h2;
 int niall;
-float scaleFactor1, scaleFactor2, scaleFactor3, scaleFactor31, scaleFactor32, scaleFactor4, scaleFactor5;
+float scaleFactor1, scaleFactor2, scaleFactor3;
 
 void setup() {
   size(500, 800);
@@ -14,18 +14,13 @@ void setup() {
   boxfont = createFont("Bookman Old Style", 30, true);
   boxfont2 = createFont("Bookman Old Style", 16, true);
   niall = 1;
-  mom = loadImage("mrspottslooksangry.gif");
   chip = loadImage("prettychipblackbackground.jpg");
   clock = loadImage("clockdude.gif");
   duster = loadImage("sweepSTANDING.gif");
   candles = loadImage("candlelookingcool.gif");
   scaleFactor1 = .45;
   scaleFactor2 = .3;
-  scaleFactor3 = .2;
-  scaleFactor31 = .160;
-  scaleFactor32 = .150;
-  scaleFactor4 = .250;
-  scaleFactor5 = .160;
+  scaleFactor3 = .175;
 }
 
 void draw() {
@@ -67,10 +62,8 @@ void draw() {
   }
   if (niall==2){
     background(255);
-    image(clock,400,110, width*scaleFactor3, height*scaleFactor3);
-    image(candles,25,230, width*scaleFactor3, height*scaleFactor3);
-    image(mom,325,415, width*scaleFactor4, height*scaleFactor5);
-    //image(duster, 50, 400, width*scaleFactor3, height*scaleFactor3);
+    image(clock,400,120, width*scaleFactor3, height*scaleFactor3);
+    image(candles,50,230, width*scaleFactor3, height*scaleFactor3);
     fill(0);
     textFont(okfont);
     text("Power-ups Include:", 250, 100);
@@ -98,6 +91,8 @@ void draw() {
     textFont(mediumfont);
     fill(0);
     text("Back", 65, 40);
+
+    
   }
     if(mousePressed && mouseX>5 && mouseX<55 && mouseY<130 && mouseY>5) {
       niall = 1;
