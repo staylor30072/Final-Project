@@ -1,8 +1,8 @@
 PFont bigfont, mediumfont, smallfont, boxfont, boxfont2, okfont;
-PImage chip, clock, duster, candles, mom;
+PImage chipey, clock, duster, candles, mom;
 float w1,w2,h1,h2;
 int niall;
-float scaleFactor1, scaleFactor2, scaleFactor3, scaleFactor31, scaleFactor32, scaleFactor4, scaleFactor5;
+float scaleFactor11, scaleFactor21, scaleFactor3, scaleFactor31, scaleFactor32, scaleFactor4, scaleFactor5;
 
 void setup() {
   size(500, 800);
@@ -15,12 +15,12 @@ void setup() {
   boxfont2 = createFont("Bookman Old Style", 16, true);
   niall = 1;
   mom = loadImage("mrspottslooksangry.gif");
-  chip = loadImage("prettychipblackbackground.jpg");
+  chipey = loadImage("prettychipblackbackground.jpg");
   clock = loadImage("clockdude.gif");
   duster = loadImage("sweepdusterstanding.gif");
   candles = loadImage("candlelookingcool.gif");
-  scaleFactor1 = .45;
-  scaleFactor2 = .3;
+  scaleFactor11 = .45;
+  scaleFactor21 = .3;
   scaleFactor3 = .2;
   scaleFactor31 = .180;
   scaleFactor32 = .150;
@@ -31,7 +31,7 @@ void setup() {
 void draw() {
   if (niall == 1){
   background(0);
-  image(chip,0,0, width*scaleFactor1, height*scaleFactor2 );
+  image(chipey,0,0, width*scaleFactor11, height*scaleFactor21 );
   textAlign(CENTER);
   fill(255);
   textFont(bigfont);
