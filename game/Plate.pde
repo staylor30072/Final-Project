@@ -11,7 +11,7 @@ class Plate {
 
   //Constructor 2
   Plate(Plate old) {
-    loc= new PVector(random(old.loc.x-100, old.loc.x+100), random(old.loc.y-200, old.loc.y-10));
+    loc= new PVector(random(old.loc.x-200, old.loc.x+200), random(old.loc.y-650, old.loc.y-300));
     xsize = 100;
     ysize = 10;
   }
@@ -41,7 +41,9 @@ class Plate {
 
   //Makes plates move down
   void update() {
-    loc.y+=4;
+    
+      loc.y+=30;
+    
   }
 
   //Checks to see if plate is at that basepoint
