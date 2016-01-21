@@ -8,10 +8,14 @@ class Plate {
     xsize = 100;
     ysize = 10;
   }
-
+  Plate(float x, float y){
+    loc = new PVector(x,y);
+    xsize = 100;
+    ysize = 10;
+  }
   //Constructor 2
   Plate(Plate old) {
-    loc= new PVector(random(old.loc.x-200, old.loc.x+200), random(old.loc.y-650, old.loc.y-300));
+    loc= new PVector(random(old.loc.x-200, old.loc.x+200), 0);
     xsize = 100;
     ysize = 10;
   }

@@ -7,8 +7,8 @@ void setup() {
   size(500, 800);
 
   //Original Plate
-  for ( int i=0; i<1; i++) {
-    platform.add(new Plate());
+  for ( int i=0; i<3; i++) {
+    platform.add(new Plate(random(0,width),random(200,height)));
   }
   //Chip stuff
   chip = new Chip(platform.get(0));
@@ -23,18 +23,18 @@ void draw() {
   else{
     chip.displaychipjump(); //shows pic of chip jumping
   }
-  if(down&&t.loc.y<height-height/8){
-    for(int j = 0; j<platform.size();j++){
+  if(down&&t.loc.y<height-height/8){ //if plate jumped on isn't on bottom 
+    for(int j = 0; j<platform.size();j++){//all plates move down
         Plate k = platform.get(j);
         k.update();
       }
   }
   for (int i = platform.size()-1; i>=0; i--) {
 
-    Plate o= platform.get(i);
+    Plate o= platform.get(i); //gets each plate
 
-    if (o.isInContactWithChip(chip.loc)) {
-      down = true;   
+    if (o.isInContactWithChip(chip.loc)&&chip.isFalling()) { //if chip touches plate while falling
+      down = true;   //plates move down
       t = o;
       
       chip.jump();
@@ -58,9 +58,7 @@ void draw() {
       platform.remove(i);
       platform.add(new Plate(o));
     }
-    if (keyPressed && keyCode==UP) {
-      platform.add(new Plate(o));
-    }
+
   }
 }
 
