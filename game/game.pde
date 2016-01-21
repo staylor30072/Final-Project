@@ -17,12 +17,12 @@ void setup() {
   mom = loadImage("mrspottslooksangry.gif");
   chip = loadImage("prettychipblackbackground.jpg");
   clock = loadImage("clockdude.gif");
-  duster = loadImage("sweepSTANDING.gif");
+  duster = loadImage("sweepdusterstanding.gif");
   candles = loadImage("candlelookingcool.gif");
   scaleFactor1 = .45;
   scaleFactor2 = .3;
   scaleFactor3 = .2;
-  scaleFactor31 = .160;
+  scaleFactor31 = .180;
   scaleFactor32 = .150;
   scaleFactor4 = .250;
   scaleFactor5 = .160;
@@ -70,7 +70,7 @@ void draw() {
     image(clock,400,110, width*scaleFactor3, height*scaleFactor3);
     image(candles,25,230, width*scaleFactor3, height*scaleFactor3);
     image(mom,325,415, width*scaleFactor4, height*scaleFactor5);
-    //image(duster, 50, 400, width*scaleFactor3, height*scaleFactor3); picture is not loading?
+    image(duster, 30, 530, width*scaleFactor31, height*scaleFactor31);
     fill(0);
     textFont(okfont);
     text("Power-ups Include:", 250, 100);
@@ -79,8 +79,8 @@ void draw() {
     text("Cogsworth:", 175, 175);
     text("Lumière:", 325, 275);
     text("Mrs.Potts:", 175, 475);
-    text("Babette:", 325, 575);
-    text("Shattered Plates:", 175, 675);
+    text("Babette:", 325, 585);
+    text("Shattered Plates:", 175, 700);
     textFont(smallfont);
     text("He will slow down the rising water", 175, 200);
     text("This gives Chip more time to get higher!", 175, 225); 
@@ -88,10 +88,10 @@ void draw() {
     text("He will make Chip float higher!", 325, 325);
     text("She wants Chip to take a bath", 175, 500);
     text("So she will make Chip lose", 175, 525);
-    text("She will dust Chip away!", 325, 600);
-    text("And Chip will fall to the sink!", 325, 625);
-    text("They are not a safe place to land,", 175, 700);
-    text("Chip will fall right through them!", 175, 725);
+    text("She will dust Chip away!", 325, 610);
+    text("And Chip will fall to the sink!", 325, 635);
+    text("They are not a safe place to land,", 175, 725);
+    text("Chip will fall right through them!", 175, 750);
     fill(255, 204, 102);
     stroke(255);
     rect(5,5,125,50);
