@@ -1,8 +1,8 @@
 boolean play = false;
 Chip chip;
 ArrayList<Plate> platform = new ArrayList<Plate>();
-
-
+boolean down = false;
+Plate t;
 void setup() {
   size(500, 800);
 
@@ -23,23 +23,24 @@ void draw() {
   else{
     chip.displaychipjump(); //shows pic of chip jumping
   }
-  
+  if(down&&t.loc.y<height-height/8){
+    for(int j = 0; j<platform.size();j++){
+        Plate k = platform.get(j);
+        k.update();
+      }
+  }
   for (int i = platform.size()-1; i>=0; i--) {
 
     Plate o= platform.get(i);
 
     if (o.isInContactWithChip(chip.loc)) {
-      
-        
-      for(int j = 0; j<platform.size();j++){
-        Plate k = platform.get(j);
-        k.update();
-      }
-      
+      down = true;   
+      t = o;
       
       chip.jump();
       
     }
+    
   }
 
   for (int i = platform.size()-1; i>=0; i--) {

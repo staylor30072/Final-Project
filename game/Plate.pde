@@ -42,7 +42,7 @@ class Plate {
   //Makes plates move down
   void update() {
     
-      loc.y+=30;
+      loc.y+=10;
     
   }
 
