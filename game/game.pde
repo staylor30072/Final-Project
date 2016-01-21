@@ -13,7 +13,7 @@ void setup() {
   smallfont = createFont("Bookman Old Style", 17, true);
   boxfont = createFont("Bookman Old Style", 30, true);
   boxfont2 = createFont("Bookman Old Style", 16, true);
-  niall = 1;
+  niall = 2;
   mom = loadImage("mrspottslooksangry.gif");
   chipey = loadImage("prettychipblackbackground.jpg");
   clock = loadImage("clockdude.gif");
@@ -29,7 +29,7 @@ void setup() {
 }
 
 void draw() {
-  if (niall == 1){
+  if (niall == 2){
   background(0);
   image(chipey,0,0, width*scaleFactor11, height*scaleFactor21 );
   textAlign(CENTER);
@@ -59,13 +59,13 @@ void draw() {
   text("Instructions", 375, 680);
   }
 
-  if (mousePressed && mouseX>290 && mouseX<450 && mouseY<715 && mouseY>625) {
+  if (niall == 2 && mousePressed && mouseX>290 && mouseX<450 && mouseY<715 && mouseY>625) {
+    niall = 3;
+  }
+  if (niall == 3 && mousePressed && mouseX>5 && mouseX<130 && mouseY>5 && mouseY<55) {
     niall = 2;
   }
-  if (mousePressed && mouseX>5 && mouseX<130 && mouseY>5 && mouseY<55) {
-    niall = 1;
-  }
-  if (niall==2){
+  if (niall==3){
     background(255);
     image(clock,400,110, width*scaleFactor3, height*scaleFactor3);
     image(candles,25,230, width*scaleFactor3, height*scaleFactor3);
@@ -100,6 +100,6 @@ void draw() {
     text("Back", 65, 40);
   }
     if(mousePressed && mouseX>5 && mouseX<55 && mouseY<130 && mouseY>5) {
-      niall = 1;
+      niall = 2;
     }
 }
