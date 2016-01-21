@@ -7,7 +7,7 @@ void setup() {
   size(500, 800);
 
   //Original Plate
-  for ( int i=0; i<3; i++) {
+  for ( int i=0; i<4; i++) {
     platform.add(new Plate(random(0,width),random(200,height)));
   }
   //Chip stuff
@@ -45,7 +45,7 @@ void draw() {
 
   for (int i = platform.size()-1; i>=0; i--) {
     Plate o=platform.get(i);
-    if (platform.size()<=10) {    //Limits the amount 
+    if (platform.size()<=5) {    //Limits the amount 
       platform.add(new Plate(o));
     }
     o.create();
