@@ -25,6 +25,8 @@ ArrayList<Plate> platform = new ArrayList<Plate>();
 boolean down = false;
 Plate t;
 boolean start;
+int score = 0;
+
 
 void setup() {
   size(500, 800);  //size of screen
@@ -75,7 +77,7 @@ void setup() {
   platform.add(new Plate(random(0, width), 300));
   platform.add(new Plate(random(0, width), 400));
   platform.add(new Plate(random(0, width), 600));
-  
+
   platform.add(new Plate(random(0, width), 100));
   //Chip stuff
   chip = new Chip(platform.get(0));
@@ -95,10 +97,10 @@ void setup() {
   //heights and widths of buttons on opening page
 }
 void draw() {
-  
+
   starter();
   if (start) {
-    game();
+    gameStart();
   }
 }
 
@@ -106,10 +108,12 @@ void keyPressed() {
   chip.key();
 }
 
-void game() {
+void gameStart() {
   background(255);
   chip.update();    //Updates Chip
   chip.fall();    //Makes chip fall
+  fill(0);
+  text("Score:"+score,250,50);
   if (chip.isFalling()) {
     chip.displaychip();
   }//shows Chip
@@ -131,6 +135,7 @@ void game() {
       t = o;
 
       chip.jump();
+      score++;
     }
   }
 
@@ -149,6 +154,9 @@ void game() {
       platform.remove(i);
       platform.add(new Plate(o));
     }
+  }
+  if (chip.dead()) {
+    background(0);
   }
 }
 
@@ -309,7 +317,7 @@ void starter() {
     //add a picture of chip on the opening screen
 
     if (mousePressed && mouseX > w1a && mouseX < w2a && mouseY > h1a && mouseY < h2a) {
-     start=true;
+      start=true;
     }
 
     // if the play button is pressed game will start (temporarily black screen until merged)

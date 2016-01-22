@@ -63,4 +63,13 @@ class Chip {
   void jump() {
       vel.y = -12;
   }
+  
+  //end game
+  boolean dead(){
+    if(loc.y>800){
+      return true;
+      
+    }
+    return false;
+  }
 }
