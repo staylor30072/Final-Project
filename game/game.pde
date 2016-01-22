@@ -70,10 +70,13 @@ void setup() {
 
   //Original Plate made so they'll be evenly spaced
   platform.add(new Plate(random(0, width), 200));
+  platform.add(new Plate());
 
   platform.add(new Plate(random(0, width), 300));
   platform.add(new Plate(random(0, width), 400));
   platform.add(new Plate(random(0, width), 600));
+  
+  platform.add(new Plate(random(0, width), 100));
   //Chip stuff
   chip = new Chip(platform.get(0));
 
@@ -133,8 +136,8 @@ void game() {
 
   for (int i = platform.size()-1; i>=0; i--) {
     Plate o=platform.get(i);
-    if (platform.size()<=4) {    //Limits the amount 
-      platform.add(new Plate(o));
+    if (platform.size()>5) {    //Limits the amount 
+      platform.remove(i);
     }
     o.create();
 

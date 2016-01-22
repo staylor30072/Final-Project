@@ -12,7 +12,7 @@ class Chip {
     xsize=60;
     ysize=80;
     loc = new PVector();
-    loc.set(bottom.loc.x, bottom.loc.y - ysize/2);
+    loc.set(width/2, 700);
     vel = new PVector();
     vel.set(0, 12);
   }

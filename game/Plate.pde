@@ -4,8 +4,8 @@ class Plate {
 
   //Constructor 1
   Plate() {
-    loc= new PVector(width/2, height-height/10);
-    xsize = 100;
+    loc= new PVector(width/2, 790);
+    xsize = 500;
     ysize = 10;
   }
   Plate(float x, float y){
