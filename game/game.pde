@@ -6,10 +6,12 @@ Plate t;
 void setup() {
   size(500, 800);
 
-  //Original Plate
-  for ( int i=0; i<4; i++) {
-    platform.add(new Plate(random(0,width),random(200,height)));
-  }
+  //Original Plate made so they'll be evenly spaced
+  platform.add(new Plate(random(0,width),200));
+  
+  platform.add(new Plate(random(0,width),300));
+  platform.add(new Plate(random(0,width),400));
+  platform.add(new Plate(random(0,width),600));
   //Chip stuff
   chip = new Chip(platform.get(0));
 }
@@ -45,7 +47,7 @@ void draw() {
 
   for (int i = platform.size()-1; i>=0; i--) {
     Plate o=platform.get(i);
-    if (platform.size()<=5) {    //Limits the amount 
+    if (platform.size()<=4) {    //Limits the amount 
       platform.add(new Plate(o));
     }
     o.create();
