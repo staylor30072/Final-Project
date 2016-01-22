@@ -1,5 +1,5 @@
 class Chip {
-  float gravity =.2;
+  float gravity =.3;
   PVector loc, vel;
   PImage chip, chipjump;
   float chipx, chipy;
@@ -45,22 +45,22 @@ class Chip {
 
   //Shows the image of chip
   void displaychip() {
-    image(chip,loc.x,loc.y,xsize,ysize);
+    image(chip, loc.x, loc.y, xsize, ysize);
   }
   void displaychipjump() {
-  image(chipjump,loc.x,loc.y,xsize,ysize);
+    image(chipjump, loc.x, loc.y, xsize, ysize);
   }
 
   //Is Chip REALLY falling?
   boolean isFalling() {
-    if (vel.y>0){
-    return true;
+    if (vel.y>0) {
+      return true;
     }
     return false;
   }
 
   //Make sure Chip's intitial velocity
   void jump() {
-    vel.y = -10;
+      vel.y = -12;
   }
 }
