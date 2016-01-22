@@ -23,6 +23,7 @@ class Plate {
   // Makes a new plate
   void create() {
     fill(255);
+    stroke(2);
     ellipse(loc.x, loc.y, xsize, ysize);
   }
 
@@ -46,7 +47,7 @@ class Plate {
   //Makes plates move down
   void update() {
     
-      loc.y+=10;
+      loc.y+=30;
     
   }
 
