@@ -37,6 +37,9 @@ class GameStart {
       if (platform.size()>5) {    //Limits the amount 
         platform.remove(i);
       }
+      if(platform.size()<4){
+        platform.add(new Plate(random(0, width), 0));
+      }
       o.create();
 
       /*if (o.allAboutThatBase()) {
