@@ -58,8 +58,7 @@ void setup() {
   duster = loadImage("sweepdusterstanding.gif");
   candles = loadImage("candlelookingcool.gif");
   tile = loadImage("tile.jpg");
-  //chip = loadImage("chip.jpg");
-  // ahhh = loadImage(“scaredchipfinal.jpg”);
+
 
   //load all images
   scaleFactor1 = 1.2;
