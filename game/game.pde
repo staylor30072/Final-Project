@@ -19,12 +19,11 @@ float scaleFactor11, scaleFactor21, scaleFactor33, scaleFactor31, scaleFactor32,
 
 int niall;
 
-boolean play = false;
 Chip chip;
 ArrayList<Plate> platform = new ArrayList<Plate>();
 boolean down = false;
 Plate t;
-boolean start;
+boolean start = false;
 int score = 0;
 GameStart gamestart;
 Starter starter;
@@ -34,7 +33,7 @@ void setup() {
   
   
   size(500, 800);  //size of screen
-  frameRate(200);
+  if(!start){
   bigfont = createFont("Bookman Old Style", 48, true);
   okfont = createFont("Bookman Old Style", 32, true);
   mediumfont = createFont("Bookman Old Style", 25, true);
@@ -49,16 +48,16 @@ void setup() {
   //declare all fonts and font sizes
 
   niall = 1;
-
+  
   // sets that when program starts to run, begin on start screen
-
+  }
+  if(!start){
   mom = loadImage("mrspottslooksangry.gif");
   chipey = loadImage("prettychipblackbackground.jpg");
   clock = loadImage("clockdude.gif");
   duster = loadImage("sweepdusterstanding.gif");
   candles = loadImage("candlelookingcool.gif");
   tile = loadImage("tile.jpg");
-
 
   //load all images
   scaleFactor1 = 1.2;
@@ -72,7 +71,7 @@ void setup() {
   scaleFactor32 = .150;
   scaleFactor43 = .250;
   scaleFactor5 = .160;
-
+  }
   //Original Plate made so they'll be evenly spaced
   platform.add(new Plate(random(0, width), 200));
   platform.add(new Plate());
@@ -88,7 +87,7 @@ void setup() {
   gamestart= new GameStart();
   starter=new Starter();
   //set all scale factors
-
+  
   w1a = 150;
   w2a = 350;
   h1a = 200;
