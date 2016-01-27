@@ -34,19 +34,24 @@ class GameStart {
 
     for (int i = platform.size()-1; i>=0; i--) {
       Plate o=platform.get(i);
+      if (o.offScreen()) {
+        platform.remove(i);
+        platform.add(new Plate(o));
+      }
+      if(platform.size()<4){
+        platform.add(new Plate(random(0, width), 0));
+      }
       if (platform.size()>5) {    //Limits the amount 
         platform.remove(i);
       }
+      
       o.create();
 
       /*if (o.allAboutThatBase()) {
        o.update();
        } */
 
-      if (o.offScreen()) {
-        platform.remove(i);
-        platform.add(new Plate(o));
-      }
+      
     }
     if (chip.dead()) {
       background(0);
